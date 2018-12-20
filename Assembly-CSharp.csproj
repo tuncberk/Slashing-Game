@@ -51,13 +51,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Assets\Scripts\Item.cs" />
-     <Compile Include="Assets\Assets\Scripts\ItemSpawner.cs" />
-     <Compile Include="Assets\Assets\Scripts\Managers\GameManager.cs" />
-     <Compile Include="Assets\Assets\Scripts\Managers\GUIManager.cs" />
-     <Compile Include="Assets\Assets\Scripts\Managers\SFXManager.cs" />
-     <Compile Include="Assets\Assets\Scripts\Sword.cs" />
-     <None Include="Assets\Assets\BOXOPHOBIC\Skybox Cubemap Extended\Shaders\Skybox Cubemap Extended.shader" />
+     <Compile Include="Assets\Imports\VolumetricLines\Scripts\Utils\TransformExtensionMethods.cs" />
+     <Compile Include="Assets\Imports\VolumetricLines\Scripts\VolumetricLineBehavior.cs" />
+     <Compile Include="Assets\Imports\VolumetricLines\Scripts\VolumetricLineSettings.cs" />
+     <Compile Include="Assets\Imports\VolumetricLines\Scripts\VolumetricLineStripBehavior.cs" />
+     <Compile Include="Assets\Imports\VolumetricLines\Scripts\VolumetricLineVertexData.cs" />
+     <Compile Include="Assets\Imports\VolumetricLines\Scripts\VolumetricMultiLineBehavior.cs" />
+     <Compile Include="Assets\Scripts\Item.cs" />
+     <Compile Include="Assets\Scripts\ItemSpawner.cs" />
+     <Compile Include="Assets\Scripts\LoginManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\GUIManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\SFXManager.cs" />
+     <Compile Include="Assets\Scripts\Sword.cs" />
+     <None Include="Assets\Imports\VolumetricLines\Shaders\_StripShader.cginc" />
+     <None Include="Assets\Imports\VolumetricLines\Shaders\Additive.shader" />
+     <None Include="Assets\Imports\VolumetricLines\Shaders\AlphaBlended.shader" />
+     <None Include="Assets\Imports\VolumetricLines\Shaders\Strip-Additive.shader" />
+     <None Include="Assets\Imports\VolumetricLines\Shaders\Fast-AlphaBlended.shader" />
+     <None Include="Assets\Imports\VolumetricLines\Shaders\Strip-AlphaBlended.shader" />
+     <None Include="Assets\Imports\BOXOPHOBIC\Skybox Cubemap Extended\Shaders\Skybox Cubemap Extended.shader" />
+     <None Include="Assets\Imports\VolumetricLines\Shaders\Fast-Additive.shader" />
+     <None Include="Assets\Imports\VolumetricLines\Shaders\_SimpleShader.cginc" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
