@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Therapist.unity
+- path: Assets/Scenes/OptionsFields.unity
   isLoaded: 1
   isActive: 1

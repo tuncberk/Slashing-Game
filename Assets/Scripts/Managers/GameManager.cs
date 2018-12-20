@@ -40,6 +40,11 @@ public class GameManager : MonoBehaviour
         {
             ReturnToMenu();
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+           // ScreenshotHandler.TakeScreenShot_Static(Screen.width, Screen.height);
+           ScreenshotHandler.TakeScreenShot_Static(1920, 1080);
+        }
     }
     public void LoadScene(string sceneName) {
 		instance.StartCoroutine(Load(sceneName));
