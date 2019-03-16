@@ -51,30 +51,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Imports\VolumetricLines\Scripts\Utils\TransformExtensionMethods.cs" />
-     <Compile Include="Assets\Imports\VolumetricLines\Scripts\VolumetricLineBehavior.cs" />
-     <Compile Include="Assets\Imports\VolumetricLines\Scripts\VolumetricLineSettings.cs" />
-     <Compile Include="Assets\Imports\VolumetricLines\Scripts\VolumetricLineStripBehavior.cs" />
-     <Compile Include="Assets\Imports\VolumetricLines\Scripts\VolumetricLineVertexData.cs" />
-     <Compile Include="Assets\Imports\VolumetricLines\Scripts\VolumetricMultiLineBehavior.cs" />
+     <Compile Include="Assets\Scripts\Direction.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Item.cs" />
      <Compile Include="Assets\Scripts\Gameplay\ItemSpawner.cs" />
-     <Compile Include="Assets\Scripts\Gameplay\LoginManager.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Sword.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\Therapy.cs" />
+     <Compile Include="Assets\Scripts\GameSettings.cs" />
      <Compile Include="Assets\Scripts\GUI and others\FieldSelectionGUI.cs" />
+     <Compile Include="Assets\Scripts\GUI and others\Login.cs" />
+     <Compile Include="Assets\Scripts\GUI and others\Register.cs" />
      <Compile Include="Assets\Scripts\GUI and others\ScreenshotHandler.cs" />
+     <Compile Include="Assets\Scripts\Managers\DBManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GUIManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\OutputManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SFXManager.cs" />
-     <None Include="Assets\Imports\VolumetricLines\Shaders\_StripShader.cginc" />
-     <None Include="Assets\Imports\VolumetricLines\Shaders\Additive.shader" />
-     <None Include="Assets\Imports\VolumetricLines\Shaders\AlphaBlended.shader" />
-     <None Include="Assets\Imports\VolumetricLines\Shaders\Strip-Additive.shader" />
-     <None Include="Assets\Imports\VolumetricLines\Shaders\Fast-AlphaBlended.shader" />
-     <None Include="Assets\Imports\VolumetricLines\Shaders\Strip-AlphaBlended.shader" />
+     <Compile Include="Assets\Scripts\OptionsFields.cs" />
+     <Compile Include="Assets\Scripts\OptionsParameters.cs" />
+     <Compile Include="Assets\Scripts\Patient.cs" />
+     <Compile Include="Assets\Scripts\Therapist.cs" />
      <None Include="Assets\Imports\BOXOPHOBIC\Skybox Cubemap Extended\Shaders\Skybox Cubemap Extended.shader" />
-     <None Include="Assets\Imports\VolumetricLines\Shaders\Fast-Additive.shader" />
-     <None Include="Assets\Imports\VolumetricLines\Shaders\_SimpleShader.cginc" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

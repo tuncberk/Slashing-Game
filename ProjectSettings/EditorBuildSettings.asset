@@ -9,14 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 67adac43bcf286444be612074ab04f75
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/MenuScenes/MainMenu.unity
     guid: 71ce4e51b86e4544f9407eae8d93543f
   - enabled: 1
     path: Assets/Scenes/Player.unity
     guid: e4f5265a1e09da34b8cd30373e0815cf
   - enabled: 1
-    path: Assets/Scenes/Therapist.unity
+    path: Assets/Scenes/MenuScenes/OptionsParameters.unity
     guid: 1ff24f80cc6e0824198ace89853bfaf4
   - enabled: 1
-    path: Assets/Scenes/Login.unity
+    path: Assets/Scenes/MenuScenes/Login.unity
     guid: c73d1fb55c70c554090ab19323db386d
+  - enabled: 1
+    path: Assets/Scenes/MenuScenes/Register.unity
+    guid: 1ac0c18203d9f3b46be81ccd19ae6335

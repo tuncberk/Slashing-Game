@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    //public GameObject db;
     public GameObject faderObj;
     private Color fadeTransparency = new Color(0, 0, 0, .04f);
     public Image faderImg;
@@ -14,8 +15,8 @@ public class GameManager : MonoBehaviour
     private string currentScene;
     private AsyncOperation async;
     public float fadeSpeed = .02f;
-
-
+    
+    //public Text playerDisplay;
 
 
     // Use this for initialization
@@ -26,11 +27,13 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             instance = GetComponent<GameManager>();
             SceneManager.sceneLoaded += OnLevelFinishedLoading;
+            
         }
         else
         {
             Destroy(gameObject);
         }
+        //delete
     }
 
     // Update is called once per frame
@@ -42,19 +45,21 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-           // ScreenshotHandler.TakeScreenShot_Static(Screen.width, Screen.height);
-           ScreenshotHandler.TakeScreenShot_Static(1920, 1080);
+            // ScreenshotHandler.TakeScreenShot_Static(Screen.width, Screen.height);
+            ScreenshotHandler.TakeScreenShot_Static(1920, 1080);
         }
     }
-    public void LoadScene(string sceneName) {
-		instance.StartCoroutine(Load(sceneName));
-		instance.StartCoroutine(FadeOut(instance.faderObj, instance.faderImg));
-	}
-    IEnumerator Load(string sceneName) {
-		async = SceneManager.LoadSceneAsync(sceneName);
-		async.allowSceneActivation = false;
-		yield return async;
-		isReturning = false;
+    public void LoadScene(string sceneName)
+    {
+        instance.StartCoroutine(Load(sceneName));
+        instance.StartCoroutine(FadeOut(instance.faderObj, instance.faderImg));
+    }
+    IEnumerator Load(string sceneName)
+    {
+        async = SceneManager.LoadSceneAsync(sceneName);
+        async.allowSceneActivation = false;
+        yield return async;
+        isReturning = false;
     }
     // Get the current scene name
     public string CurrentSceneName
