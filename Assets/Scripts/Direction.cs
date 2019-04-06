@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public enum Direction
+﻿public enum Direction
 {
-	upLeft,
-	up,
-	upRight,
-	midLeft,
-	midRight,
-	downLeft,
-	down,
-	downRight,
+    UpLeft = 0,
+    Up = 1,
+    UpRight = 2,
+    MidLeft = 3,
+    MidRight = 4,
+    DownLeft = 5,
+    Down = 6,
+    DownRight = 7,
 }

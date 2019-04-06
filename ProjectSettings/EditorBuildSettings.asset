@@ -23,3 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuScenes/Register.unity
     guid: 1ac0c18203d9f3b46be81ccd19ae6335
+  - enabled: 1
+    path: Assets/Scenes/MenuScenes/Therapist/Therapist.unity
+    guid: cc3745513e3fab14c8d236d0f17070e3
+  - enabled: 1
+    path: Assets/Scenes/MenuScenes/Therapist/Therapies.unity
+    guid: 490f61e2761f6a049b533fdbf7e58e99
+  - enabled: 1
+    path: Assets/Scenes/MenuScenes/Therapist/Players.unity
+    guid: 787eabd42423a6d4ca3b00e96137191d

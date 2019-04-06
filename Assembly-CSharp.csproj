@@ -51,14 +51,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Area.cs" />
      <Compile Include="Assets\Scripts\Direction.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\Game.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Item.cs" />
      <Compile Include="Assets\Scripts\Gameplay\ItemSpawner.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Sword.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Therapy.cs" />
      <Compile Include="Assets\Scripts\GameSettings.cs" />
+     <Compile Include="Assets\Scripts\GUI and others\ButtonListButtonPatients.cs" />
+     <Compile Include="Assets\Scripts\GUI and others\ButtonListButtonTherapies.cs" />
+     <Compile Include="Assets\Scripts\GUI and others\ButtonListControlPatients.cs" />
+     <Compile Include="Assets\Scripts\GUI and others\ButtonListControlTherapies.cs" />
      <Compile Include="Assets\Scripts\GUI and others\FieldSelectionGUI.cs" />
      <Compile Include="Assets\Scripts\GUI and others\Login.cs" />
+     <Compile Include="Assets\Scripts\GUI and others\MainMenuGUI.cs" />
+     <Compile Include="Assets\Scripts\GUI and others\PrintTherapies.cs" />
      <Compile Include="Assets\Scripts\GUI and others\Register.cs" />
      <Compile Include="Assets\Scripts\GUI and others\ScreenshotHandler.cs" />
      <Compile Include="Assets\Scripts\Managers\DBManager.cs" />

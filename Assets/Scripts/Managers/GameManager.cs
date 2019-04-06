@@ -41,7 +41,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ReturnToMenu();
+            //ReturnToMenu();
+            GUIManager.instance.activatePauseMenu();
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {

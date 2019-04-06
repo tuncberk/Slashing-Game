@@ -1831,7 +1831,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Sa\u011F"
+  m_Text: Sag
 --- !u!222 &427043333
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5734,7 +5734,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: "Sa\u011F"
+    - m_Text: Sag
       m_Image: {fileID: 0}
     - m_Text: Sol
       m_Image: {fileID: 0}

@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Item : MonoBehaviour {
-	
-	[SerializeField]
-	private float speed;
+	private float speed = GameSettings.speed;
 	
 	// Use this for initialization
 	void Start () {
-		speed = - speed /1000;
+		speed = - speed /10;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate(0.0f,0.0f, speed);
+		transform.Translate(0.0f,0.0f, speed * Time.deltaTime);
 		if (gameObject.transform.position.z < -30){
 			float x_coord = gameObject.transform.position.x;
 			float y_coord = gameObject.transform.position.y;
@@ -25,6 +23,8 @@ public class Item : MonoBehaviour {
 			//Report.isHit = false;
         	OutputManager.writePlay(x_coord, y_coord, false, clr);
 			Destroy(gameObject);
+
+			Game.itemCounter -= 1;
 		}
 	}
 	

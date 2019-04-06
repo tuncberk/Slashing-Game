@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class GameSettings {
-	public static int id = 1;
+	public static int id = 0;
 	public static string handType = "Sol";
 	public static int difficulty = 2;
 	public static bool handTracker = false;
 	public static string concept = "Kutu";
-	public static int speed = 70;
+	public static int speed = 50;
 	public static bool cognitive = false;
 	public static string stance = "Ayakta";
-	public static int upLeft = 3;
-	public static int up = 3;
-	public static int upRight = 3;
-	public static int midLeft = 3;
-	public static int midRight = 3;
-	public static int downLeft = 3;
-	public static int down = 3;
-	public static int downRight = 3;
+	public static int upLeft = 10;
+	public static int up = 10;
+	public static int upRight = 10;
+	public static int midLeft = 10;
+	public static int midRight = 10;
+	public static int downLeft = 10;
+	public static int down = 10;
+	public static int downRight = 10;
 	public static void setGameSettings(string[] parameters)
 	{
 		GameSettings.id = int.Parse(parameters[1]);
@@ -38,6 +38,19 @@ public static class GameSettings {
 		GameSettings.down = int.Parse(parameters[15]);
 		GameSettings.downRight = int.Parse(parameters[16]);
 	}
+	public static int getItemLength()
+    {
+        int total = 0;
+        total += GameSettings.upLeft;
+        total += GameSettings.up;
+        total += GameSettings.upRight;
+        total += GameSettings.midLeft;
+        total += GameSettings.midRight;
+        total += GameSettings.downLeft;
+        total += GameSettings.down;
+        total += GameSettings.downRight;
+        return total;
+    }
 	public static void debugLogSettings()
 	{
 		Debug.Log(GameSettings.id);

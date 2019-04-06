@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-//using Newtonsoft.Json;
 using System.IO;
 
 public static class OutputManager
@@ -20,7 +19,7 @@ public static class OutputManager
             var csvFileLenth = new System.IO.FileInfo(userGamefilePath).Length;
             if (csvFileLenth == 0)
             {
-                writer.WriteLine("player_id,therapy_id,item_id,x_coord,y_coord,hit,color");
+                writer.WriteLine("player_id,therapy_id,item_id,x_coord,y_coord,hit,color,date");
             }
 			//string clr = color.ToString().Split('_')[1];
             writer.WriteLine(Patient.id.ToString() +
@@ -29,7 +28,8 @@ public static class OutputManager
                         "," + x_coord.ToString() +
                         "," + y_coord.ToString() +
                         "," + isHit.ToString() +
-                        "," + color);
+                        "," + color +
+                        "," + DateTime.Today.ToString().Split(' ')[0]);
         }
         incrementItemId();
     }

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class Patient {
-	public static int id = 3;
+	public static string name;
+	public static string surname;
+
+
+	public static int id = 0;
 	public static int therapyId;
 }
