@@ -39,7 +39,8 @@ public class Sword : MonoBehaviour
         OutputManager.writePlay(x_coord, y_coord, true, clr);
         Destroy(other.gameObject);
 
-        GUIManager.instance.upgradeScore(1);
+        GUIManager.instance.upgradeScore(10);
         Game.itemCounter -= 1;
+        Game.destroyedItemCounter += 1;
     }
 }

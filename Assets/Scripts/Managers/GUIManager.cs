@@ -36,6 +36,7 @@ public class GUIManager : MonoBehaviour
         }
         else
         {
+            Cursor.visible = true;
             isPaused = true;
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
@@ -43,17 +44,24 @@ public class GUIManager : MonoBehaviour
     }
     public void resumeGame()
     {
+        Cursor.visible = false;
         isPaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
     public void returnToMain()
     {
-      Time.timeScale = 1f;
-      SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
     public void activateGameOverMenu()
     {
+        Time.timeScale = 0f;
+        Cursor.visible = true;
         gameOverMenu.SetActive(true);
+
+        scoreTotal.text = "Toplam Puan: " + score.ToString();
+        itemTotal.text = "Toplam Engel Sayisi: " + GameSettings.getItemLength().ToString();
+        itemDestroyed.text = "Vurulan Engel Sayisi: " + Game.destroyedItemCounter.ToString();
     }
 }
