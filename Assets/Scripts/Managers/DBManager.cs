@@ -34,6 +34,10 @@ public class DBManager : MonoBehaviour
     {
         StartCoroutine(GetUserTherapy());
     }
+    public void CallGetTherapyWithId()
+    {
+        StartCoroutine(GetTherapyWithId());
+    }
     public void CallSubmitTherapy()
     {
         StartCoroutine(SubmitTherapy());
@@ -41,6 +45,10 @@ public class DBManager : MonoBehaviour
     public void CallSubmitPatientTherapy()
     {
         StartCoroutine(SubmitPatientTherapy());
+    }
+    public void CallUpdateTherapy()
+    {
+        StartCoroutine(UpdateTherapy());
     }
     IEnumerator GetAllTherapies()
     {
@@ -65,9 +73,9 @@ public class DBManager : MonoBehaviour
             // {
             //     Debug.Log(Therapist.therapies[i].ToString());
             // }
-            
+
             //Therapist.therapies = www.text.Split('\t');
-            
+
             //UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
         }
     }
@@ -92,7 +100,7 @@ public class DBManager : MonoBehaviour
 
             Therapist.patients = www.text.Split('\t');
             //Therapist.therapies = www.text.Split('\t');
-            
+
             //UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
         }
     }
@@ -118,7 +126,34 @@ public class DBManager : MonoBehaviour
             string[] therapyParameters = www.text.Split('\t');
             GameSettings.setGameSettings(therapyParameters);
             GameSettings.debugLogSettings();
-           // UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            // UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        }
+    }
+    IEnumerator GetTherapyWithId()
+    {
+        string targetURL = "http://localhost/slashing_game/sqlconnect/get_therapy_with_id.php";
+        Debug.Log("Getting therapies " + targetURL);
+
+        WWWForm form = new WWWForm();
+        form.AddField("therapy_id", Patient.therapyId);
+        WWW www = new WWW(targetURL, form);
+
+        yield return www;
+        if (www.text[0] == '0')
+        {
+            Debug.Log("Therapy. Error # " + www.text);
+        }
+        else
+        {
+            Debug.Log(www.text);
+            //DBManager.username = usernameField.text; 
+            //Patient.therapyId = int.Parse(www.text);
+            string[] therapyParameters = www.text.Split('\t');
+            GameSettings.id = Patient.therapyId;
+            GameSettings.setGameSettings(therapyParameters);
+            GameSettings.debugLogSettings();
+            // UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            //yield return new WaitForSeconds(3);
         }
     }
     IEnumerator SubmitTherapy()
@@ -129,6 +164,7 @@ public class DBManager : MonoBehaviour
         WWWForm form = new WWWForm();
         //addTherapyFields(form);
         //form.AddField("id", GameSettings.id);
+        form.AddField("therapyName", GameSettings.therapyName);
         form.AddField("handType", GameSettings.handType);
         form.AddField("difficulty", GameSettings.difficulty);
         form.AddField("handTracker", GameSettings.handTracker.ToString());
@@ -144,15 +180,16 @@ public class DBManager : MonoBehaviour
         form.AddField("down", GameSettings.down);
         form.AddField("downLeft", GameSettings.downLeft);
         form.AddField("downRight", GameSettings.downRight);
-       
+
         WWW www = new WWW(targetURL, form);
         yield return www;
         Debug.Log(www.text);
         if (www.text[0] == '0')
         {
             Debug.Log("therapy added succesfully");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Therapist");
 
-            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            //UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
         }
         else
         {
@@ -179,6 +216,30 @@ public class DBManager : MonoBehaviour
             Debug.Log("patient-therapy added/updated succesfully");
 
             UnityEngine.SceneManagement.SceneManager.LoadScene("Therapist");
+        }
+        else
+        {
+            Debug.Log("User login failed. Error # " + www.text);
+        }
+    }
+    IEnumerator UpdateTherapy()
+    {
+        string targetURL = "http://localhost/slashing_game/sqlconnect/update_therapy.php";
+        Debug.Log("Logining patient " + targetURL);
+
+        WWWForm form = new WWWForm();
+
+        addTherapyFields(form);
+
+        WWW www = new WWW(targetURL, form);
+        yield return www;
+
+        Debug.Log(www.text);
+        if (www.text[0] == '0')
+        {
+            Debug.Log("therapy updated succesfully");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Therapist");
+
         }
         else
         {

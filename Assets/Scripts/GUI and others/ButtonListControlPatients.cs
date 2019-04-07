@@ -21,7 +21,6 @@ public class ButtonListControlPatients : MonoBehaviour
 
             button.GetComponent<ButtonListButtonPatients>().setText(patient_name + " " + patient_surname);
             button.transform.SetParent(buttonTemplate.transform.parent, false);
-
         }
     }
     public void setPatientInfo()

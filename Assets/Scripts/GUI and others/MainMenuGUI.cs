@@ -9,7 +9,7 @@ public class MainMenuGUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log(Patient.name);
+		//Debug.Log(Patient.name);
 
 		if (Patient.name != null)
 		{

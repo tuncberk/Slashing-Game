@@ -15,9 +15,9 @@ public class Login : MonoBehaviour
     public void CallLogin()
     {
         //if (therapistToggle.isOn)
-            StartCoroutine(LoginTherapist());
+        StartCoroutine(LoginTherapist());
         //else
-            //StartCoroutine(LoginPatient());
+        //StartCoroutine(LoginPatient());
     }
     IEnumerator LoginTherapist()
     {
@@ -39,7 +39,7 @@ public class Login : MonoBehaviour
             Debug.Log(Therapist.id);
             Debug.Log(Therapist.username);
 
-            
+            DBManager.instance.CallGetAllTherapies();
             UnityEngine.SceneManagement.SceneManager.LoadScene("Therapist");
         }
         else
@@ -71,7 +71,7 @@ public class Login : MonoBehaviour
 
             // Debug.Log("id"+Patient.id);
             // Debug.Log("id"+Patient.name);
-            // Debug.Log("id"+Patient.surname);
+            //Debug.Log("surname"+Patient.surname);
 
             //DBManager.instance.id = int.Parse(www.text.Split('\t')[1]);
             //DBManager.instance.CallGetUserTherapy();

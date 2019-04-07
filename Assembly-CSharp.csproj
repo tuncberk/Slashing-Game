@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Area.cs" />
-     <Compile Include="Assets\Scripts\Direction.cs" />
+     <Compile Include="Assets\Scripts\CubeRotate.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Game.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Item.cs" />
      <Compile Include="Assets\Scripts\Gameplay\ItemSpawner.cs" />
@@ -66,9 +66,9 @@
      <Compile Include="Assets\Scripts\GUI and others\FieldSelectionGUI.cs" />
      <Compile Include="Assets\Scripts\GUI and others\Login.cs" />
      <Compile Include="Assets\Scripts\GUI and others\MainMenuGUI.cs" />
-     <Compile Include="Assets\Scripts\GUI and others\PrintTherapies.cs" />
      <Compile Include="Assets\Scripts\GUI and others\Register.cs" />
      <Compile Include="Assets\Scripts\GUI and others\ScreenshotHandler.cs" />
+     <Compile Include="Assets\Scripts\GUI and others\TherapiesSubmit.cs" />
      <Compile Include="Assets\Scripts\Managers\DBManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GUIManager.cs" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class GameSettings {
+	public static string therapyName = "Ornek Terapi";
 	public static int id = 0;
 	public static string handType = "Sol";
 	public static int difficulty = 2;
@@ -51,6 +52,29 @@ public static class GameSettings {
         total += GameSettings.downRight;
         return total;
     }
+	public static string[] getGameSettings()
+	{
+		string[] settings = new string[16];
+
+		settings[0] = GameSettings.id.ToString();
+		settings[1] = GameSettings.handType.ToString();
+		settings[2] = GameSettings.difficulty.ToString();
+		settings[3] = GameSettings.handTracker.ToString();
+		settings[4] = GameSettings.concept.ToString();
+		settings[5] = GameSettings.speed.ToString();
+		settings[6] = GameSettings.cognitive.ToString();
+		settings[7] = GameSettings.stance.ToString();
+		settings[8] = GameSettings.upLeft.ToString();
+		settings[9] = GameSettings.up.ToString();
+		settings[10] = GameSettings.upRight.ToString();
+		settings[11] = GameSettings.midLeft.ToString();
+		settings[12] = GameSettings.midRight.ToString();
+		settings[13] = GameSettings.downLeft.ToString();
+		settings[14] = GameSettings.down.ToString();
+		settings[15] = GameSettings.downRight.ToString();
+
+		return settings;
+	}
 	public static void debugLogSettings()
 	{
 		Debug.Log(GameSettings.id);

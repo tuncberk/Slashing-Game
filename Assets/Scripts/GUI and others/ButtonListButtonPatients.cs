@@ -14,6 +14,7 @@ public class ButtonListButtonPatients : MonoBehaviour {
 	}
 	public void onClick()
 	{
+		GUIManager.fromPlayersScene = true;
 		buttonContol.setPatientInfo();
 		UnityEngine.SceneManagement.SceneManager.LoadScene("Therapies");
 	}

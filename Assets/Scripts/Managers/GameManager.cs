@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadScene(string sceneName)
     {
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
         instance.StartCoroutine(Load(sceneName));
         instance.StartCoroutine(FadeOut(instance.faderObj, instance.faderImg));
     }
