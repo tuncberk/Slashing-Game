@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Sword : MonoBehaviour
 {
+    public GameObject particle;
     [SerializeField]
     private float swordDistance;
 
@@ -31,12 +32,19 @@ public class Sword : MonoBehaviour
 
         float x_coord = other.gameObject.transform.position.x;
         float y_coord = other.gameObject.transform.position.y;
-        // float x_coord = this.transform.position.x;
-        // float y_coord = this.transform.position.y;
+        float z_coord = other.gameObject.transform.position.z;
+
+        //data related stuff
         string clr = other.gameObject.GetComponent<MeshRenderer>().material.name.Split('_')[1];
         clr = clr.Split(' ')[0];
-
         OutputManager.writePlay(x_coord, y_coord, true, clr);
+
+        //particles
+        Vector3 position = new Vector3(x_coord, y_coord, z_coord);
+        GameObject firework = Instantiate(particle, position, Quaternion.identity);
+        firework.GetComponent<ParticleSystem>().Play();
+        //Destroy(particle, 4);
+
         Destroy(other.gameObject);
 
         GUIManager.instance.upgradeScore(10);

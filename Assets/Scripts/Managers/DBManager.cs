@@ -215,7 +215,7 @@ public class DBManager : MonoBehaviour
         {
             Debug.Log("patient-therapy added/updated succesfully");
 
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Therapist");
+            //UnityEngine.SceneManagement.SceneManager.LoadScene("Therapist");
         }
         else
         {

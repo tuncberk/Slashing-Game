@@ -3,44 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using System.Diagnostics;
 
 public static class OutputManager
 {
     public static int item_id = 0;
-    //static string gameSettingsfilePath;
-    //public static bool isHit = false;
-    static string gameSettingsfilePath = Application.dataPath + "Game_Settings.csv";
-    static string userGamefilePath = Application.dataPath + "User_Play.csv";
-    
-    public static void writePlay(float x_coord,float  y_coord,bool isHit,string color)
+
+    public static void writeGameSettings(string path)
     {
-        using (StreamWriter writer = new StreamWriter(userGamefilePath, true))
+        //gameSettingsfilePath = path;
+        using (StreamWriter writer = new StreamWriter(path, true))
         {
-            var csvFileLenth = new System.IO.FileInfo(userGamefilePath).Length;
+            var csvFileLenth = new System.IO.FileInfo(path).Length;
             if (csvFileLenth == 0)
             {
-                writer.WriteLine("player_id,therapy_id,item_id,x_coord,y_coord,hit,color,date");
-            }
-			//string clr = color.ToString().Split('_')[1];
-            writer.WriteLine(Patient.id.ToString() +
-						"," + GameSettings.id.ToString() +
-						"," + item_id.ToString() +
-                        "," + x_coord.ToString() +
-                        "," + y_coord.ToString() +
-                        "," + isHit.ToString() +
-                        "," + color +
-                        "," + DateTime.Today.ToString().Split(' ')[0]);
-        }
-        incrementItemId();
-    }
-    public static void writeGameSettings()
-    {
-        using (StreamWriter writer = new StreamWriter(gameSettingsfilePath, true))
-        {
-            var csvFileLenth = new System.IO.FileInfo(gameSettingsfilePath).Length;
-            if (csvFileLenth == 0)
-            {
-                writer.WriteLine("id,handType,difficulty,handTracker,concept,speed,cognitive,stance");
+                writer.WriteLine("id,handType,difficulty,handTracker,concept,speed,cognitive,stance,file_name");
             }
             writer.WriteLine(GameSettings.id.ToString() +
                         "," + GameSettings.handType.ToString() +
@@ -49,12 +26,131 @@ public static class OutputManager
                         "," + GameSettings.concept.ToString() +
                         "," + GameSettings.speed.ToString() +
                         "," + GameSettings.cognitive.ToString() +
-                        "," + GameSettings.stance.ToString());
+                        "," + GameSettings.stance.ToString() +
+                        "," + timeStampHour + "-" + GameSettings.id.ToString());
         }
     }
     private static void incrementItemId()
     {
         item_id += 1;
     }
+
+    //------------------------------------------------------------------------------//
+    static string gameTablePath = Application.dataPath;
+    static string timeStamp = System.DateTimeOffset.Now.ToString("yyyy-MM-dd");
+    static string timeStampHour = System.DateTime.Now.ToString("HH-mm-ss");
+
+    private static void EnsureDirectoryExists(string filePath)
+    {
+        FileInfo fi = new FileInfo(filePath);
+        if (!fi.Directory.Exists)
+        {
+            System.IO.Directory.CreateDirectory(fi.DirectoryName);
+        }
+    }
+
+    public static void writePlay(float x_coord, float y_coord, bool isHit, string color)
+    {
+
+        string userGamefilePath = gameTablePath + "/Players" + "/" + Patient.name + Patient.surname + "/" + timeStamp + "/";
+        EnsureDirectoryExists(userGamefilePath);
+        string userGameFullPath = userGamefilePath + timeStampHour + "-" + GameSettings.id.ToString() + ".csv";
+        string txt;
+
+        using (StreamWriter writer = new StreamWriter(userGameFullPath, true))
+        {
+            var csvFileLenth = new System.IO.FileInfo(userGameFullPath).Length;
+            if (csvFileLenth == 0)
+            {
+                UnityEngine.Debug.Log("Lenght is 0");
+                string textPath = gameTablePath + "/credentials.txt";
+                using (StreamWriter textwr = new StreamWriter(textPath, true))
+                {
+                    string writeToText = Patient.name + Patient.surname + "," + timeStamp + "," + timeStampHour + "," + GameSettings.id.ToString();
+                    textwr.WriteLine(writeToText);
+                };
+                string gameSettingsfilePath = userGamefilePath + "GameSettings.csv";
+                writeGameSettings(gameSettingsfilePath);
+
+                writer.WriteLine("player_id,therapy_id,item_id,x_coord,y_coord,hit,color");
+            }
+
+            txt = (Patient.id.ToString() +
+                   "," + GameSettings.id.ToString() +
+                   "," + item_id.ToString() +
+                   "," + x_coord.ToString() +
+                   "," + y_coord.ToString() +
+                   "," + isHit.ToString() +
+                   "," + color );
+                   //"," + DateTime.Today.ToString().Split(' ')[0]);
+            writer.WriteLine(txt);
+            incrementItemId();
+        }
+    }
+    public static void writeHeatmapPython()
+    {
+        Process p = new Process();
+        p.StartInfo.FileName = "python";
+        p.StartInfo.Arguments = "heatmap.py";
+        p.StartInfo.RedirectStandardError = true;
+        p.StartInfo.RedirectStandardOutput = true;
+        p.StartInfo.CreateNoWindow = true;
+
+        p.StartInfo.WorkingDirectory = Application.dataPath;
+        p.StartInfo.UseShellExecute = false;
+
+        p.Start();
+        int timeout = 50000; // some normal value in milliseconds
+
+        p.WaitForExit(timeout);
+
+        try
+        {
+            //ExitCode throws if the process is hanging
+            UnityEngine.Debug.Log(p.ExitCode);
+        }
+        catch (System.InvalidOperationException ioex)
+        {
+            UnityEngine.Debug.Log(ioex.ToString());
+        }
+        UnityEngine.Debug.Log(p.StandardOutput.ReadToEnd());
+        p.WaitForExit();
+        p.Close();
+    }
+    public static void writeBarchartPython()
+    {
+        Process p = new Process();
+        p.StartInfo.FileName = "python";
+        p.StartInfo.Arguments = "generatebar.py";
+        // Pipe the output to itself - we will catch this later
+        p.StartInfo.RedirectStandardError = true;
+        p.StartInfo.RedirectStandardOutput = true;
+        p.StartInfo.CreateNoWindow = true;
+
+        // Where the script lives
+        //p.StartInfo.WorkingDirectory = "C:/Users/Burak/Unity Projects/EndlessRunner/";
+        p.StartInfo.WorkingDirectory = Application.dataPath;
+        p.StartInfo.UseShellExecute = false;
+
+        p.Start();
+        int timeout = 50000; // some normal value in milliseconds
+
+        p.WaitForExit(timeout);
+
+        try
+        {
+            //ExitCode throws if the process is hanging
+            UnityEngine.Debug.Log(p.ExitCode);
+        }
+        catch (System.InvalidOperationException ioex)
+        {
+            UnityEngine.Debug.Log(ioex.ToString());
+        }
+        UnityEngine.Debug.Log(p.StandardOutput.ReadToEnd());
+        p.WaitForExit();
+        p.Close();
+    }
+
+
 
 }

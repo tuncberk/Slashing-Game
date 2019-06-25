@@ -23,7 +23,7 @@ public class ButtonListControlPatients : MonoBehaviour
             button.transform.SetParent(buttonTemplate.transform.parent, false);
         }
     }
-    public void setPatientInfo()
+    public void setPatientInfo(string patient_name, string patient_surname)
     {
         Patient.name = patient_name;
         Patient.surname = patient_surname;

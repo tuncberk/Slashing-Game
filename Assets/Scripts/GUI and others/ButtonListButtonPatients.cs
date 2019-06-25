@@ -15,7 +15,9 @@ public class ButtonListButtonPatients : MonoBehaviour {
 	public void onClick()
 	{
 		GUIManager.fromPlayersScene = true;
-		buttonContol.setPatientInfo();
+		string name = myText.text.Split(' ')[0];
+		string surname = myText.text.Split(' ')[1];
+		buttonContol.setPatientInfo(name, surname);
 		UnityEngine.SceneManagement.SceneManager.LoadScene("Therapies");
 	}
 }

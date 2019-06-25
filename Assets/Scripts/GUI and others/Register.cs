@@ -38,7 +38,7 @@ public class Register : MonoBehaviour
         if (www.text == "0")
         {
             Debug.Log("User created successfully");
-            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            //UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
         }
         else
         {

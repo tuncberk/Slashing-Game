@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class OptionsFields : MonoBehaviour
 {
-
+    //public Button nextButton;
     public InputField UL;
     public InputField U;
     public InputField UR;
@@ -53,5 +53,10 @@ public class OptionsFields : MonoBehaviour
         Debug.Log("from fields, handType text: " + GameSettings.speed);
         Debug.Log("from fields, handType text: " + GameSettings.cognitive);
         Debug.Log("from fields, handType text: " + GameSettings.stance);
+    }
+    public void onClick()
+    {
+        passInputs();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("OptionsParameters");        
     }
 }

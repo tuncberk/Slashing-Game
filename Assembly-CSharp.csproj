@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\GUI and others\Register.cs" />
      <Compile Include="Assets\Scripts\GUI and others\ScreenshotHandler.cs" />
      <Compile Include="Assets\Scripts\GUI and others\TherapiesSubmit.cs" />
+     <Compile Include="Assets\Scripts\GUI and others\Therapist\TherapistMenu.cs" />
      <Compile Include="Assets\Scripts\Managers\DBManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GUIManager.cs" />
@@ -78,6 +79,8 @@
      <Compile Include="Assets\Scripts\OptionsParameters.cs" />
      <Compile Include="Assets\Scripts\Patient.cs" />
      <Compile Include="Assets\Scripts\Therapist.cs" />
+     <None Include="Assets\read me.txt" />
+     <None Include="Assets\credentials.txt" />
      <None Include="Assets\Imports\BOXOPHOBIC\Skybox Cubemap Extended\Shaders\Skybox Cubemap Extended.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

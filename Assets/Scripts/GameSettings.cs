@@ -12,14 +12,14 @@ public static class GameSettings {
 	public static int speed = 50;
 	public static bool cognitive = false;
 	public static string stance = "Ayakta";
-	public static int upLeft = 1;
-	public static int up = 1;
-	public static int upRight = 1;
-	public static int midLeft = 1;
-	public static int midRight = 1;
-	public static int downLeft = 1;
-	public static int down = 1;
-	public static int downRight = 1;
+	public static int upLeft = 10;
+	public static int up = 10;
+	public static int upRight = 10;
+	public static int midLeft = 10;
+	public static int midRight = 10;
+	public static int downLeft = 10;
+	public static int down = 10;
+	public static int downRight = 10;
 	public static void setGameSettings(string[] parameters)
 	{
 		GameSettings.id = int.Parse(parameters[1]);

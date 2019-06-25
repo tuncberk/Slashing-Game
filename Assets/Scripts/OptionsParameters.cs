@@ -70,4 +70,10 @@ public class OptionsParameters : MonoBehaviour
             DBManager.instance.CallUpdateTherapy();
         }
     }
+    public void onClick()
+    {
+        passInputs();
+        submitParameters();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Therapist");
+    }
 }

@@ -1,0 +1,8 @@
+player_id,therapy_id,item_id,x_coord,y_coord,hit,color
+0,0,0,8.5,3,False,Daybreak
+0,0,1,6.3,2,False,Sunset
+0,0,2,8.5,1,False,Daybreak
+0,0,3,8.5,1,False,Evening
+0,0,4,8.5,3,True,Sunset
+0,0,5,8.5,1,False,Evening
+0,0,6,8.5,3,True,Evening

@@ -19,8 +19,6 @@ public class Item : MonoBehaviour {
 			string clr = gameObject.GetComponent<MeshRenderer>().material.name.Split('_')[1];
 			clr = clr.Split(' ')[0];
 
-			//string clr = objectMaterial.name.Split('_')[1];
-			//Report.isHit = false;
         	OutputManager.writePlay(x_coord, y_coord, false, clr);
 			Destroy(gameObject);
 

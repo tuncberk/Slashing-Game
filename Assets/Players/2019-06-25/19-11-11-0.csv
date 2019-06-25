@@ -1,0 +1,10 @@
+player_id,therapy_id,item_id,x_coord,y_coord,hit,color
+0,0,0,6.3,2,True,Green
+0,0,1,6.3,1,True,Red
+0,0,2,6.3,3,True,Black
+0,0,3,6.3,3,True,Green
+0,0,4,8.5,2,True,White
+0,0,5,6.3,2,True,Black
+0,0,6,7.4,1,True,Red
+0,0,7,7.4,3,True,Black
+0,0,8,7.4,3,True,Green
